@@ -1,0 +1,56 @@
+.calculator {
+  text-align: center;
+}
+
+.actions {
+  margin-top: 2rem;
+}
+
+.home-description {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.detail-page {
+  max-width: 800px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+.detail-wrapper {
+  margin-bottom: 3rem;
+}
+
+.detail-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.detail-intro {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.detail-section p {
+  line-height: 1.7;
+  color: var(--light);
+}
+
+.back-wrapper {
+  text-align: left;
+}

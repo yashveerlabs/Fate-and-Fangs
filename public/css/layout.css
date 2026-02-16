@@ -1,0 +1,15 @@
+.header {
+  padding: 2rem;
+  text-align: center;
+}
+
+.brand {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Personal Numerology Calculator | Name & Personality Number Analysis</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Discover your personality traits, name number and personal numerology insights using Fate & Fangs Numerology.">
+<meta name="keywords" content="Personal Numerology, Name Numerology, Personality Number Calculator, Numerology Traits">
+<meta name="author" content="Yashveer Singh Rajpoot">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://fate-and-fangs.vercel.app/personal.html">
+<link rel="icon" href="/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Personal Numerology Calculator">
+<meta property="og:description" content="Check your personality number and name numerology characteristics instantly.">
+<meta property="og:url" content="https://fate-and-fangs.vercel.app/personal.html">
+<meta property="og:image" content="https://fate-and-fangs.vercel.app/preview.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Personal Numerology Calculator",
+  "applicationCategory": "CalculatorApplication",
+  "creator": {
+    "@type": "Person",
+    "name": "Yashveer Singh Rajpoot"
+  }
+}
+</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Mapping legacy class names to new theme for dynamic content compatibility
+            gold: '#4B0082',      // Mapped to Deep Indigo (Headings/Values)
+            charcoal: '#E6E6FA',  // Mapped to Soft Lavender (Backgrounds)
+            soft: '#E6E6FA',      // Mapped to Soft Lavender (Cards)
+            
+            // New Theme Palette
+            'pale-cream': '#FDFDFF',
+            'soft-lavender': '#E6E6FA',
+            'dark-charcoal': '#333333',
+            'deep-indigo': '#4B0082',
+            'seafoam': '#9FE2BF',
+            'soft-pink': '#FFB6C1',
+            'pale-gold': '#E6BE8A'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#FDFDFF] text-black font-sans selection:bg-[#9FE2BF] selection:text-[#4B0082]">
+
+
+<div class="max-w-6xl mx-auto px-6 py-20">
+
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h1 class="font-display text-4xl md:text-5xl text-[#4B0082] mb-4 tracking-tight">
+      Personal Numerology
+    </h1>
+    <p class="text-black max-w-xl mx-auto font-normal">
+
+      A deeper look into your personality, strengths, destiny and karmic blueprint.
+    </p>
+  </div>
+
+  <!-- Dynamic Hero Section -->
+  <div id="heroSection" class="mb-16"></div>
+
+  <!-- Dynamic Sections -->
+  <div id="content"
+       class="grid md:grid-cols-2 gap-8">
+  </div>
+
+  <!-- Back -->
+  <div class="mt-20 text-center">
+    <a href="./index.html"
+       class="inline-flex items-center gap-2 bg-[#9FE2BF] text-[#4B0082] px-10 py-3 rounded-full hover:bg-[#8CD1AF] transition font-medium shadow-sm hover:shadow-md">
+       <iconify-icon icon="solar:arrow-left-linear" width="20" stroke-width="1.5"></iconify-icon>
+       <span>Back to Main</span>
+    </a>
+  </div>
+
+</div>
+
+<script type="module" src="../js/main.js"></script>
+</body>
+</html>

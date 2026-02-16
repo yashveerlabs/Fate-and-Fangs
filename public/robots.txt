@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fate-and-fangs.vercel.app/sitemap.xml

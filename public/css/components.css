@@ -1,0 +1,62 @@
+.input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: none;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.circles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.large {
+  width: 180px;
+  height: 180px;
+  font-size: 4rem;
+  background: #222;
+}
+
+.small {
+  width: 120px;
+  height: 120px;
+  font-size: 1.5rem;
+  background: #333;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.primary {
+  background: var(--gold);
+  color: black;
+}
+
+.secondary {
+  background: #ccc;
+  color: black;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}

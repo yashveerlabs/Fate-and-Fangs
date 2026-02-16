@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fate & Fangs Numerology Calculator | Life Path & Destiny Number Tool</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Use the Fate & Fangs Numerology Calculator to instantly calculate Life Path Number, Destiny Number, Name Number and Business Number. Free and accurate tool.">
+  <meta name="keywords" content="Numerology Calculator Online, Life Path Number Calculator, Destiny Number Calculator, Free Numerology Tool">
+  <meta name="author" content="Yashveer Singh Rajpoot">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://fate-and-fangs.vercel.app/fate-and-fangs.html">
+  <link rel="icon" href="/favicon.ico">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fate & Fangs Numerology Calculator">
+  <meta property="og:description" content="Free online numerology calculator for personal and business name analysis.">
+  <meta property="og:url" content="https://fate-and-fangs.vercel.app/fate-and-fangs.html">
+  <meta property="og:image" content="https://fate-and-fangs.vercel.app/preview.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Fate & Fangs Numerology Calculator",
+    "applicationCategory": "CalculatorApplication",
+    "operatingSystem": "All",
+    "creator": {
+      "@type": "Person",
+      "name": "Yashveer Singh Rajpoot"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+
+<body class="bg-[#FDFDFF] text-[#333333] font-sans min-h-screen flex items-center justify-center p-4 selection:bg-[#9FE2BF] selection:text-[#4B0082]">
+
+  <div class="w-full max-w-lg">
+
+    <!-- Header -->
+    <header class="text-center mb-10 space-y-3">
+      <div class="inline-flex items-center justify-center p-3 bg-[#E6E6FA] rounded-full text-[#4B0082] mb-2 shadow-sm">
+        <iconify-icon icon="solar:stars-minimalistic-linear" width="24" stroke-width="1.5"></iconify-icon>
+      </div>
+      <h1 class="font-display text-4xl md:text-5xl text-[#4B0082] tracking-tight font-medium">
+        Fate & Fangs
+      </h1>
+      <p class="text-xs tracking-[0.2em] uppercase text-[#4B0082]/70 font-medium">
+        Numerology Intelligence
+      </p>
+    </header>
+
+    <!-- Main Card -->
+    <div class="bg-[#E6E6FA] rounded-[2rem] p-8 shadow-[0_20px_40px_-15px_rgba(75,0,130,0.05)] border border-white/60 backdrop-blur-sm">
+
+      <!-- Input Section -->
+      <div class="mb-10 relative group">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#4B0082]/40 group-focus-within:text-[#4B0082] transition-colors duration-300">
+          <iconify-icon icon="solar:magnifer-linear" width="20" stroke-width="1.5"></iconify-icon>
+        </div>
+        <input
+          id="inputValue"
+          type="text"
+          placeholder="Enter name or number..."
+          class="w-full bg-[#FDFDFF] border border-[#4B0082]/10 rounded-2xl pl-12 pr-5 py-4 text-[#4B0082] placeholder-[#4B0082]/30 focus:border-[#9FE2BF] focus:ring-4 focus:ring-[#9FE2BF]/20 outline-none transition-all duration-300 font-medium shadow-sm"
+        />
+      </div>
+
+      <!-- Numbers Display -->
+      <div class="flex justify-center items-end gap-8 mb-10">
+
+        <!-- Final/Core Number -->
+        <div class="text-center group cursor-default">
+          <div class="w-32 h-32 rounded-full border-[1.5px] border-[#E6BE8A] bg-[#FDFDFF] flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform duration-500 ease-out">
+            <span id="finalNumber" class="font-display text-6xl text-[#4B0082] tracking-tight font-medium">0</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 text-[#E6BE8A]">
+            <iconify-icon icon="solar:crown-linear" width="14" stroke-width="1.5"></iconify-icon>
+            <p class="text-xs uppercase tracking-widest font-medium">Core</p>
+          </div>
+        </div>
+
+        <!-- Total/Sum Number -->
+        <div class="text-center group cursor-default">
+          <div class="w-20 h-20 rounded-full border border-[#FFB6C1] bg-[#FDFDFF]/50 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-500 ease-out">
+            <span id="totalNumber" class="font-sans text-2xl text-[#333333] font-light">0</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 text-[#FFB6C1]">
+            <iconify-icon icon="solar:chart-2-linear" width="14" stroke-width="1.5"></iconify-icon>
+            <p class="text-xs uppercase tracking-widest font-medium">Sum</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dynamic Description -->
+      <div id="homeDescription" class="text-center space-y-2 mb-10 text-[#333333]/80 text-sm leading-relaxed font-light">
+        <p>Enter your name or number to reveal your vibration.</p>
+        <p>Your core number defines personality and destiny.</p>
+        <p>Discover strengths, challenges, and life direction.</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="space-y-4">
+
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Primary Action -->
+          <button data-route="personal"
+            class="group relative overflow-hidden bg-[#9FE2BF] text-[#4B0082] py-3.5 rounded-xl font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+            <span class="relative z-10">Personal</span>
+            <iconify-icon icon="solar:user-linear" width="18" stroke-width="1.5" class="relative z-10 transition-transform group-hover:rotate-12"></iconify-icon>
+            <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </button>
+
+          <!-- Secondary Action -->
+          <button data-route="business"
+            class="group bg-[#FDFDFF] border border-[#9FE2BF]/50 text-[#4B0082] py-3.5 rounded-xl font-medium hover:bg-[#FDFDFF] hover:border-[#9FE2BF] hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+            <span>Business</span>
+            <iconify-icon icon="solar:case-linear" width="18" stroke-width="1.5" class="text-[#4B0082]/70 group-hover:text-[#4B0082] transition-colors"></iconify-icon>
+          </button>
+        </div>
+
+        <button id="contactBtn"
+          class="w-full text-xs uppercase tracking-widest text-[#4B0082]/60 hover:text-[#E6BE8A] transition-colors duration-300 py-2 flex items-center justify-center gap-2">
+          <span>Contact the Founder</span>
+          <iconify-icon icon="solar:arrow-right-linear" width="12" stroke-width="1.5"></iconify-icon>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Footer decoration -->
+    <div class="mt-8 text-center">
+      <iconify-icon icon="solar:infinity-linear" width="32" class="text-[#E6BE8A]/40"></iconify-icon>
+    </div>
+
+  </div>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <title>Fate & Fangs | Modern Numerology Intelligence</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fate & Fangs Numerology is a free online Vedic numerology calculator.">
+    
+    <!-- Fonts: Inter for clean, modern structure -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        base: '#FDFDFF',        // Pale Cream
+                        card: '#E6E6FA',        // Soft Lavender
+                        text: '#333333',        // Dark Charcoal
+                        heading: '#4B0082',     // Deep Indigo
+                        primary: '#9FE2BF',     // Seafoam Green
+                        secondary: '#FFB6C1',   // Soft Pink
+                        gold: '#E6BE8A',        // Pale Gold
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FDFDFF;
+            color: #333333;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Modern Glass/Linear Style Card */
+        .glass-card {
+            background: rgba(230, 230, 250, 0.4); /* Soft Lavender low opacity */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(75, 0, 130, 0.05); /* Indigo border very subtle */
+            box-shadow: 0 4px 20px -2px rgba(75, 0, 130, 0.05);
+        }
+
+        .glass-card-solid {
+            background: #E6E6FA;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 2px 10px rgba(75, 0, 130, 0.03);
+        }
+
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFDFF; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E6E6FA; 
+            border-radius: 3px;
+        }
+
+        /* 3D Perspective */
+        .perspective-container {
+            perspective: 1000px;
+        }
+        .card-3d {
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        .card-3d:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(75, 0, 130, 0.08);
+            border-color: #9FE2BF;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(135deg, #4B0082, #6A0DAD);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-heading">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-heading/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-lg font-medium tracking-tighter uppercase z-50 relative group text-heading">
+                FATE <span class="text-gold group-hover:text-primary transition-colors">&</span> FANGS
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-normal tracking-wide text-text/70">
+                <a href="#intro" class="hover:text-heading transition-colors duration-300">Introduction</a>
+                <a href="#philosophy" class="hover:text-heading transition-colors duration-300">Philosophy</a>
+                <a href="#features" class="hover:text-heading transition-colors duration-300">Features</a>
+                <a href="#vision" class="hover:text-heading transition-colors duration-300">The Vision</a>
+                <a href="#calculator" class="px-5 py-2 bg-white border border-heading/10 rounded-full hover:border-primary hover:text-heading shadow-sm transition-all duration-300 text-xs uppercase tracking-widest font-medium">Run Engine</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menu-btn" class="md:hidden z-50 text-heading focus:outline-none">
+                <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24" stroke-width="1.5"></iconify-icon>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-base z-40 flex flex-col items-center justify-center space-y-8 text-xl font-light tracking-widest opacity-0 pointer-events-none transition-opacity duration-300">
+            <a href="#intro" class="mobile-link text-heading hover:text-primary">Introduction</a>
+            <a href="#philosophy" class="mobile-link text-heading hover:text-primary">Philosophy</a>
+            <a href="#features" class="mobile-link text-heading hover:text-primary">Features</a>
+            <a href="#vision" class="mobile-link text-heading hover:text-primary">Vision</a>
+            <a href="#calculator" class="mobile-link text-primary border-b border-primary pb-1">Calculator</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute bottom-0 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 pointer-events-none mix-blend-multiply"></div>
+
+        <div class="text-center z-10 max-w-4xl px-6 animate-float">
+            <div class="mb-8 flex justify-center">
+                <div class="px-3 py-1 rounded-full bg-secondary/30 text-heading text-xs uppercase tracking-widest border border-secondary/50">
+                    Vedic Intelligence System
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-tight mb-6 text-heading">
+                FATE <span class="font-light italic text-gold">&</span> FANGS
+            </h1>
+            <p class="text-lg md:text-xl text-text/80 font-light tracking-wide mb-10 max-w-2xl mx-auto">
+                A Modern Numerology Intelligence Engine.<br>
+                <span class="text-sm text-text/60 mt-3 block">Decipher the mathematics of your destiny.</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#calculator" class="group relative px-8 py-3 bg-primary text-heading text-sm font-semibold tracking-widest uppercase overflow-hidden hover:bg-primary/90 transition-all duration-300 rounded-lg shadow-sm">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Calculate Destiny
+                        <iconify-icon icon="solar:arrow-right-linear" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                    </span>
+                </a>
+                <a href="https://instagram.com/yashveerlabs" target="_blank" class="px-8 py-3 border border-heading/10 bg-white/50 text-heading text-sm font-medium tracking-widest uppercase hover:bg-white transition-all rounded-lg">
+                    @yashveerlabs
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative Rings -->
+        <div class="absolute w-[800px] h-[800px] border border-heading/5 rounded-full animate-spin-slow pointer-events-none"></div>
+        <div class="absolute w-[600px] h-[600px] border border-gold/20 rounded-full animate-spin-slow pointer-events-none" style="animation-direction: reverse; animation-duration: 20s;"></div>
+    </section>
+
+    <!-- Interactive Calculator Engine -->
+    <section id="calculator" class="py-24 px-6 relative border-y border-heading/5 bg-card/30">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-medium tracking-tight mb-2 text-heading">Input Processing</h2>
+                <p class="text-text/60 text-sm">Enter Name, Business, or Word to reveal its frequency.</p>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-2xl relative overflow-hidden group perspective-container border border-heading/5 shadow-lg shadow-indigo-500/5">
+                <!-- Input Area -->
+                <div class="relative z-10">
+                    <input type="text" id="numerologyInput" 
+                        class="w-full bg-transparent border-b border-heading/10 py-4 text-center text-2xl md:text-4xl font-light text-heading placeholder-heading/20 focus:border-primary outline-none transition-colors uppercase tracking-widest"
+                        placeholder="TYPE HERE..." autocomplete="off">
+                    
+                    <div class="flex justify-center mt-8">
+<button 
+  onclick="window.location.href='https://fate-and-fangs.vercel.app/fate-and-fangs.html'" 
+  class="flex items-center gap-2 text-primary hover:text-heading transition-colors uppercase text-xs tracking-[0.2em] font-semibold bg-white px-4 py-2 rounded-full border border-heading/5 shadow-sm">
+  
+  <iconify-icon icon="solar:stars-minimalistic-linear" width="20"></iconify-icon>
+  Initialize Engine
+</button>
+
+                    </div>
+                </div>
+
+                <!-- Results Display (Hidden by default) -->
+                <div id="resultContainer" class="hidden mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-heading/5 opacity-0 transition-opacity duration-700">
+                    
+                    <!-- Total Circle -->
+                    <div class="flex flex-col items-center justify-center">
+                        <span class="text-xs text-text/50 uppercase tracking-widest mb-4">Total Vibration</span>
+                        <div class="w-24 h-24 rounded-full border border-heading/10 flex items-center justify-center relative bg-base">
+                            <span id="totalNumber" class="text-2xl text-text font-light"></span>
+                            <div class="absolute inset-0 rounded-full border-t border-heading/30 animate-spin-slow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Reduced Circle -->
+                    <div class="flex flex-col items-center justify-center">
+                        <span class="text-xs text-heading uppercase tracking-widest mb-4 font-medium">Reduced Root</span>
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-base to-secondary/20 border border-gold/50 flex items-center justify-center relative shadow-[0_0_30px_rgba(230,190,138,0.3)]">
+                            <span id="reducedNumber" class="text-5xl text-heading font-medium"></span>
+                            <div class="absolute inset-0 rounded-full border-t border-gold animate-spin-slow" style="animation-duration: 4s;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-1 md:col-span-2 text-center mt-6">
+                        <p class="text-sm text-heading font-medium tracking-wide" id="resultArchetype"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="intro" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-4">
+                <h2 class="text-xs text-gold tracking-widest uppercase mb-4 flex items-center gap-2 font-semibold">
+                    <iconify-icon icon="solar:info-circle-linear" class="text-lg"></iconify-icon> Introduction
+                </h2>
+                <h3 class="text-3xl font-semibold tracking-tight leading-snug text-heading">
+                    Not just a calculator. <br>A structured intelligence system.
+                </h3>
+            </div>
+            <div class="md:col-span-8 space-y-6 text-text/80 font-light leading-relaxed text-lg">
+                <p>
+                    Fate & Fangs is a structured intelligence system built to decode personal and business vibrations through precise numeric interpretation. It blends classical numerology principles with a modern computational interface.
+                </p>
+                <p>
+                    Designed by Yashveer Singh Rajpoot, it transforms names and numbers into readable personality frameworks, professional guidance, and business energy analysis.
+                </p>
+                <div class="pl-6 border-l-2 border-primary italic text-heading font-normal">
+                    The vision is simple: Convert abstract numerological theory into structured, usable intelligence.
+                </div>
+                <p>
+                    Built with intentional architecture, it is modular and logically separated. Fate & Fangs is where ancient number wisdom meets modern execution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="py-24 bg-card border-y border-heading/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-xs text-gold tracking-widest uppercase mb-2 font-semibold">The Philosophy</h2>
+                <h3 class="text-4xl font-semibold tracking-tight text-heading">Numbers are Archetypes</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-base p-8 rounded-xl card-3d border border-heading/5">
+                    <iconify-icon icon="solar:soundwave-linear" class="text-primary text-3xl mb-4"></iconify-icon>
+                    <h4 class="text-lg font-medium mb-3 text-heading">Energetic Frequency</h4>
+                    <p class="text-sm text-text/70 leading-relaxed">Every name carries energetic frequency. Every birth date carries a life path pattern.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-base p-8 rounded-xl card-3d border border-heading/5">
+                    <iconify-icon icon="solar:graph-up-linear" class="text-primary text-3xl mb-4"></iconify-icon>
+                    <h4 class="text-lg font-medium mb-3 text-heading">Commercial Vibration</h4>
+                    <p class="text-sm text-text/70 leading-relaxed">Every business name holds commercial vibration. Reduced numbers reveal behavioral tendencies.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-base p-8 rounded-xl card-3d border border-heading/5">
+                    <iconify-icon icon="solar:layers-linear" class="text-primary text-3xl mb-4"></iconify-icon>
+                    <h4 class="text-lg font-medium mb-3 text-heading">Structured Categories</h4>
+                    <p class="text-sm text-text/70 leading-relaxed">Energies are structured into attributes, strengths, career direction, and love patterns.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-base p-8 rounded-xl card-3d border border-heading/5">
+                    <iconify-icon icon="solar:eye-linear" class="text-primary text-3xl mb-4"></iconify-icon>
+                    <h4 class="text-lg font-medium mb-3 text-heading">Clarity, Not Superstition</h4>
+                    <p class="text-sm text-text/70 leading-relaxed">The application is not designed for superstition. It is designed for absolute clarity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differences -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-16">
+            <div class="md:w-1/3">
+                <h2 class="text-3xl font-semibold tracking-tight mb-6 text-heading">What Makes Fate & Fangs Different</h2>
+                <p class="text-text/70 text-sm leading-relaxed mb-6">
+                    Most numerology sites provide a number and a paragraph. This is a digital numerology engine built for strategy.
+                </p>
+                <div class="h-1 w-20 bg-gold rounded-full"></div>
+            </div>
+            <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Calculates total & reduced number</span>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Separates personal and business numerology</span>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Structures content in card based modules</span>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Detailed personality mapping & logic</span>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Professional guidance & growth timeline</span>
+                </div>
+                <div class="flex items-start gap-4 p-4 border border-heading/5 rounded-lg bg-card/30 hover:border-primary/30 transition-colors">
+                    <iconify-icon icon="solar:check-circle-linear" class="text-primary mt-1"></iconify-icon>
+                    <span class="text-sm text-text/80">Clean, light themed interface for focus</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section id="features" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2 class="text-center text-3xl font-semibold tracking-tight mb-16 text-heading">Core Features</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="glass-card-solid rounded-2xl p-8 transition-all group hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary/20 transition-colors border border-heading/5">
+                        <span class="text-heading font-mono text-sm">01</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4 text-heading">Intelligent Processing</h3>
+                    <ul class="space-y-2 text-sm text-text/70">
+                        <li>• Accepts Name, Word, Business name</li>
+                        <li>• Calculates Total & Root numbers</li>
+                        <li>• Dual circle visualization</li>
+                        <li>• Large circle: Reduced vibration</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card-solid rounded-2xl p-8 transition-all group hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary/20 transition-colors border border-heading/5">
+                        <span class="text-heading font-mono text-sm">02</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4 text-heading">Personal Numerology</h3>
+                    <ul class="space-y-2 text-sm text-text/70">
+                        <li>• Personality overview & Core traits</li>
+                        <li>• Strength & Weakness mapping</li>
+                        <li>• Career & Relationship patterns</li>
+                        <li>• Lucky colors & gemstones</li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card-solid rounded-2xl p-8 transition-all group hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary/20 transition-colors border border-heading/5">
+                        <span class="text-heading font-mono text-sm">03</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4 text-heading">Business Engine</h3>
+                    <ul class="space-y-2 text-sm text-text/70">
+                        <li>• Leadership potential & Brand dominance</li>
+                        <li>• Market positioning & Growth pattern</li>
+                        <li>• Industry suitability & Expansion</li>
+                        <li>• Financial vibration analysis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                 <!-- Feature 4 -->
+                 <div class="glass-card-solid rounded-2xl p-8 transition-all group hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary/20 transition-colors border border-heading/5">
+                        <span class="text-heading font-mono text-sm">04</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4 text-heading">Card Based Architecture</h3>
+                    <p class="text-sm text-text/70 mb-4">
+                        Improves readability through clean hierarchy. Each major topic becomes a card with structured points.
+                    </p>
+                </div>
+                 <!-- Feature 5 -->
+                 <div class="glass-card-solid rounded-2xl p-8 transition-all group hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary/20 transition-colors border border-heading/5">
+                        <span class="text-heading font-mono text-sm">05</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-4 text-heading">Responsive Design</h3>
+                    <p class="text-sm text-text/70 mb-4">
+                        Seamless across Desktop, Tablet, and Mobile. Design prioritizes clarity and breathability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture -->
+    <section class="py-24 px-6 border-t border-heading/5 bg-base">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-2xl font-semibold tracking-tight mb-4 text-heading">Technical Architecture</h2>
+            <p class="text-text/60 font-light">
+                Fate & Fangs is built with modular separation. The architecture reflects engineering discipline.
+            </p>
+        </div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 text-sm text-text/70 font-light">
+            <div class="p-6 border border-heading/5 rounded-xl bg-white shadow-sm">
+                <h4 class="text-heading font-medium mb-4 uppercase tracking-widest text-xs">Folder Structure</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Core logic</li>
+                    <li>UI rendering</li>
+                    <li>Navigation control</li>
+                    <li>Data mapping</li>
+                    <li>Page separation</li>
+                    <li>Style separation</li>
+                </ul>
+            </div>
+            <div class="p-6 border border-heading/5 rounded-xl bg-white shadow-sm">
+                <h4 class="text-heading font-medium mb-4 uppercase tracking-widest text-xs">Key Modules</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Calculator logic</li>
+                    <li>Reducer logic</li>
+                    <li>Numeric mappings</li>
+                    <li>Circle renderer</li>
+                    <li>Interaction handler</li>
+                    <li>Navigation router</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meaning of Name -->
+    <section class="py-24 bg-card relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl font-semibold tracking-tighter mb-8 text-heading">Why "Fate & Fangs"</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-right border-r border-heading/10 pr-6">
+                    <h3 class="text-2xl font-bold uppercase mb-2 text-heading">Fate</h3>
+                    <p class="text-text/70">Represents destiny, structure, and universal order.</p>
+                </div>
+                <div class="text-left pl-6">
+                    <h3 class="text-2xl font-bold uppercase mb-2 text-heading">Fangs</h3>
+                    <p class="text-text/70">Represent power, sharpness, and decisive action.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-xl font-medium tracking-tight text-heading">
+                Destiny with force. Structure with dominance. Insight with edge.<br>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explained Sections (Personal & Business) -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <!-- Personal -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-heading">Personal Numerology Explained</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 1</span>
+                        <span class="text-text/60">Leadership and authority</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 2</span>
+                        <span class="text-text/60">Emotion and harmony</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 3</span>
+                        <span class="text-text/60">Creativity and communication</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 4</span>
+                        <span class="text-text/60">Structure and discipline</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 5</span>
+                        <span class="text-text/60">Adaptability and trade</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 6</span>
+                        <span class="text-text/60">Luxury and relationships</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 7</span>
+                        <span class="text-text/60">Research and spirituality</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 8</span>
+                        <span class="text-text/60">Power and finance</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Number 9</span>
+                        <span class="text-text/60">Action and transformation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-heading">Business Numerology Explained</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 1</span>
+                        <span class="text-text/60 text-right">Startups & Brand Leadership</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 2</span>
+                        <span class="text-text/60 text-right">Service & Partnership</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 3</span>
+                        <span class="text-text/60 text-right">Marketing & Communication</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 4</span>
+                        <span class="text-text/60 text-right">Engineering & Infrastructure</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 5</span>
+                        <span class="text-text/60 text-right">Commerce & Digital Trade</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 6</span>
+                        <span class="text-text/60 text-right">Luxury & Lifestyle</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 7</span>
+                        <span class="text-text/60 text-right">Niche Research & Expertise</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 8</span>
+                        <span class="text-text/60 text-right">Finance & Corporate Authority</span>
+                    </div>
+                    <div class="flex justify-between border-b border-heading/5 py-3">
+                        <span class="text-heading font-medium">Business 9</span>
+                        <span class="text-text/60 text-right">Action Driven Industries</span>
+                    </div>
+                </div>
+                <p class="text-sm text-secondary mt-6 flex items-center gap-2">
+                    <iconify-icon icon="solar:stars-linear"></iconify-icon>
+                    Business energy is mapped differently from personal energy.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases & Future -->
+    <section class="py-24 bg-white border-t border-heading/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-xl font-medium mb-4 text-heading">Use Cases</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Entrepreneurs</span>
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Startup Founders</span>
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Students</span>
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Career Explorers</span>
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Branding Agencies</span>
+                    <span class="px-3 py-1 bg-card rounded-full text-xs text-text border border-heading/5">Personal Development</span>
+                </div>
+                <p class="mt-4 text-sm text-text/60">It serves both curiosity and strategy.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-medium mb-4 text-heading">Future Expansion</h3>
+                <div class="text-sm text-text/60 grid grid-cols-2 gap-2">
+                    <span>• Date of birth calculator</span>
+                    <span>• Compatibility matching engine</span>
+                    <span>• Signature analyzer</span>
+                    <span>• Brand scoring system</span>
+                    <span>• Export PDF reports</span>
+                    <span>• Admin content management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Phil & Vision -->
+    <section id="vision" class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <div class="mb-16">
+            <h2 class="text-xs text-gold uppercase tracking-widest mb-4 font-semibold">Design Philosophy</h2>
+            <p class="text-2xl font-light leading-relaxed max-w-3xl mx-auto text-text">
+                Pale backgrounds create breathability. Gold accents create prestige. Cards create clarity. Typography creates hierarchy.<br>
+                <span class="text-heading font-medium">Focus on knowledge. Remove distraction.</span>
+            </p>
+        </div>
+
+        <div class="bg-card p-12 rounded-2xl border-t-4 border-gold shadow-lg shadow-indigo-100">
+            <h2 class="text-3xl font-semibold tracking-tight mb-6 text-heading">The Vision</h2>
+            <p class="text-text/80 text-lg mb-8 font-light">
+                Fate & Fangs is not just an app. It is a system.
+                It demonstrates that ancient number systems can be translated into structured digital intelligence.
+            </p>
+            <div class="text-xl font-medium text-gold">
+                Engineering meets interpretation.
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator & Footer -->
+    <footer class="bg-card border-t border-heading/5 pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-heading">The Creator</h3>
+                    <p class="text-text/70 mb-6 font-light">
+                        Fate & Fangs was conceptualized and developed by <span class="text-heading font-medium">Yashveer Singh Rajpoot</span>. He built this application not as a trend, but as a structured digital system. His vision combines Information technology, Logical design, and Clean UI.
+                    </p>
+                    <a href="https://instagram.com/yashveerlabs" class="text-primary hover:text-heading transition-colors flex items-center gap-2 text-sm uppercase tracking-widest font-medium">
+                        <iconify-icon icon="solar:camera-minimalistic-linear"></iconify-icon>
+                        @yashveerlabs
+                    </a>
+                    <p class="text-xs text-text/50 mt-2">
+                        The handle represents the lab mindset: Experimentation. Building. Iteration. Execution.
+                    </p>
+                </div>
+                <div class="md:text-right flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg font-medium mb-4 text-heading">Why Structure Matters</h4>
+                        <p class="text-sm text-text/60 max-w-md ml-auto">
+                            Many numerology platforms rely on mysticism alone. Fate & Fangs uses structure. When information is categorized clearly, decisions feel logical.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-heading/5 pt-8 text-center">
+                <h2 class="text-3xl font-semibold tracking-tighter mb-4 text-heading">FATE & FANGS</h2>
+                <p class="text-text/50 text-sm mb-6">
+                    Structured. Modular. Scalable. Readable.
+                </p>
+                <div class="text-xs text-text/40 uppercase tracking-widest">
+                    Built with intention. Built to decode destiny.
+                </div>
+                <p class="text-xs text-text/40 mt-8">&copy; Yashveer Singh Rajpoot. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Pythagorean Numerology Logic
+        function calculateNumerology() {
+            const input = document.getElementById('numerologyInput').value.toLowerCase().replace(/[^a-z]/g, '');
+            const resultContainer = document.getElementById('resultContainer');
+            
+            if (!input) return;
+
+            // Pythagorean Table
+            const valueMap = {
+                a:1, b:2, c:3, d:4, e:5, f:6, g:7, h:8, i:9,
+                j:1, k:2, l:3, m:4, n:5, o:6, p:7, q:8, r:9,
+                s:1, t:2, u:3, v:4, w:5, x:6, y:7, z:8
+            };
+
+            let total = 0;
+            for (let char of input) {
+                if (valueMap[char]) {
+                    total += valueMap[char];
+                }
+            }
+
+            // Reduction Logic
+            let reduced = total;
+            while (reduced > 9) {
+                let sum = 0;
+                String(reduced).split('').forEach(digit => sum += parseInt(digit));
+                reduced = sum;
+            }
+
+            // Display Results
+            document.getElementById('totalNumber').innerText = total;
+            document.getElementById('reducedNumber').innerText = reduced;
+
+            // Simple Archetype Map
+            const archetypes = {
+                1: "Leadership and Authority",
+                2: "Emotion and Harmony",
+                3: "Creativity and Communication",
+                4: "Structure and Discipline",
+                5: "Adaptability and Trade",
+                6: "Luxury and Relationships",
+                7: "Research and Spirituality",
+                8: "Power and Finance",
+                9: "Action and Transformation"
+            };
+
+            document.getElementById('resultArchetype').innerText = archetypes[reduced] || "Analyzing Pattern...";
+
+            // UI Reveal
+            resultContainer.classList.remove('hidden');
+            void resultContainer.offsetWidth; // Trigger reflow
+            resultContainer.classList.remove('opacity-0');
+            
+            // Scroll to result
+            resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Trigger on Enter key
+        document.getElementById('numerologyInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                calculateNumerology();
+            }
+        });
+    </script>
+</body>
+</html>
